@@ -163,7 +163,7 @@ h2>span,h1>span{color:#888888}
 .signature-hero .hero-image{
   object-position:60% center;
   transition:filter 1.15s ease;
-  border-radius:var(--squircle-lg) !important;
+  border-radius:0 !important;
 }
 .signature-hero .hero-shade{
   background:linear-gradient(90deg,rgba(0,0,0,0.85),transparent 90%),linear-gradient(0deg,rgba(0,0,0,0.95),transparent 50%) !important;
@@ -222,25 +222,59 @@ h2>span,h1>span{color:#888888}
 .atmosphere-studio>p{font-size:14px;color:#cccccc;line-height:1.5;margin-top:12px;min-height:21px}
 .atmosphere-studio small{font-size:12px;color:#888888;display:block;margin-top:8px}
 
-/* Manifesto & Marquee */
+/* Manifesto & Radiant Marquee - High-Contrast Luxury Ribbon */
 .manifesto{background:#000000 !important}
 .manifesto-top>span{font-size:12px;color:#888888}
 .manifesto-text{font-size:clamp(38px,4.6vw,70px);color:#ffffff}
 .manifesto-text em{color:#999999}
 .manifesto-mark{color:#141414 !important}
 .manifesto-bottom>p{font-size:17px;max-width:480px;color:#999999}
+
 .brand-marquee{
   background:#000000 !important;
-  border-top:1px solid #141414 !important;
-  border-bottom:1px solid #141414 !important;
-  font-size:13px;
-  letter-spacing:.2em;
-  padding:22px 0;
-  color:#666666;
+  border-top:1px solid #2e2e2e !important;
+  border-bottom:1px solid #2e2e2e !important;
+  font-size:16px !important;
+  font-weight:700 !important;
+  letter-spacing:.28em !important;
+  padding:26px 0 !important;
+  color:#ffffff !important;
+  text-transform:uppercase !important;
+  position:relative;
+  z-index:2;
+  box-shadow:0 0 35px rgba(0,0,0,0.9);
 }
-.brand-marquee i{font-size:22px;color:#444444}
-.brand-marquee .marquee-track{display:flex;width:max-content;animation:vanta-ticker 70s linear infinite !important}
-.marquee-group{display:flex;flex-shrink:0;align-items:center;gap:36px;padding-right:36px;min-width:100vw;justify-content:space-around;white-space:nowrap}
+.brand-marquee .marquee-track{
+  display:flex;
+  width:max-content;
+  animation:vanta-ticker 50s linear infinite !important;
+}
+.marquee-group{
+  display:flex;
+  flex-shrink:0;
+  align-items:center;
+  gap:44px;
+  padding-right:44px;
+  min-width:100vw;
+  justify-content:space-around;
+  white-space:nowrap;
+}
+.marquee-group span{
+  color:#ffffff !important;
+  font-weight:700 !important;
+  letter-spacing:.28em !important;
+  text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+.brand-marquee i{
+  font-size:26px !important;
+  font-style:normal !important;
+  color:#ffffff !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-shadow:0 0 16px rgba(255,255,255,0.95),0 0 32px rgba(255,255,255,0.6);
+  filter:drop-shadow(0 0 6px #ffffff);
+}
 @keyframes vanta-ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* Product Collection & Carousel */
@@ -268,25 +302,41 @@ h2>span,h1>span{color:#888888}
   overflow:hidden;
 }
 
-/* Editorial Products & Compact Squircle Images */
+/* Editorial Products & Balanced 4-Column Luxury Showcase */
+.signature-collection {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding-left: var(--pad) !important;
+  padding-right: var(--pad) !important;
+}
+
 .signature-collection .section-heading {
-  max-width: 960px !important;
-  margin: 0 auto 30px !important;
+  max-width: 100% !important;
+  margin: 0 auto 36px !important;
 }
 
 .editorial-products {
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 36px 28px !important;
-  max-width: 960px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
-  padding: 10px 0 !important;
+  padding: 10px 0 20px !important;
   width: 100% !important;
 }
 
 .editorial-product {
   max-width: 100% !important;
   width: 100% !important;
+  padding-top: 0 !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.editorial-product.reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .editorial-product:nth-child(even) {
@@ -299,33 +349,40 @@ h2>span,h1>span{color:#888888}
   justify-content: center !important;
   position: relative !important;
   overflow: hidden !important;
-  aspect-ratio: 16 / 10 !important;
-  max-height: 280px !important;
+  aspect-ratio: 1 / 1 !important;
   width: 100% !important;
-  border-radius: var(--squircle-md) !important;
-  border: 1px solid #1a1a1a !important;
+  border-radius: 26px !important;
+  border: 1px solid #1c1c1c !important;
   background: #000000 !important;
-  padding: 18px !important;
+  padding: 22px !important;
   box-sizing: border-box !important;
+  transition: border-color .3s ease, transform .3s ease !important;
 }
 
 .editorial-product:nth-child(even) .editorial-visual {
-  aspect-ratio: 16 / 10 !important;
+  aspect-ratio: 1 / 1 !important;
 }
 
-/* The img itself is cleanly curved with squircle clip-path and border-radius */
+.editorial-visual:hover {
+  border-color: #383838 !important;
+}
+
+/* The img itself is curved with a smooth squircle radius matching its 1:1 aspect ratio */
 .editorial-visual img {
-  width: auto !important;
+  width: clamp(190px, 60vw, 225px) !important;
+  height: clamp(190px, 60vw, 225px) !important;
   max-width: 82% !important;
-  max-height: 200px !important;
-  height: auto !important;
+  max-height: 82% !important;
+  aspect-ratio: 1 / 1 !important;
   object-fit: contain !important;
-  border-radius: 18px !important;
-  clip-path: inset(0 round 18px) !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
   margin: auto !important;
   display: block !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
   transform: none !important;
-  transition: transform 0.4s ease !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .editorial-visual:hover img {
@@ -682,9 +739,9 @@ dialog::backdrop{background:rgba(0,0,0,0.9);backdrop-filter:blur(12px)}
   border-radius:var(--squircle-md) !important;
 }
 .product-card img,.product-visual img,.collection-grid img,.detail-image img,.philosophy-image img,#dialog-content img,.scene-photo img{
-  border-radius:18px !important;
-  clip-path:inset(0 round 18px) !important;
+  border-radius:20px !important;
   overflow:hidden !important;
+  mix-blend-mode:normal !important;
 }
 .philosophy-image{
   background:#000000 !important;
@@ -753,22 +810,43 @@ dialog::backdrop{background:rgba(0,0,0,0.9);backdrop-filter:blur(12px)}
     margin-top:20px;
   }
 
-  /* Compact product cards in mobile */
+  /* Radiant marquee in mobile */
+  .brand-marquee {
+    font-size: 14px !important;
+    padding: 20px 0 !important;
+    letter-spacing: .22em !important;
+  }
+  .brand-marquee i {
+    font-size: 22px !important;
+  }
+  .marquee-group {
+    gap: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  /* Compact squircle product cards in mobile */
   .editorial-products {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
     max-width: 100% !important;
   }
   .editorial-visual {
-    max-height: 240px !important;
-    padding: 14px !important;
-    border-radius: 20px !important;
+    aspect-ratio: 1 / 1 !important;
+    max-height: 320px !important;
+    padding: 20px !important;
+    border-radius: 22px !important;
   }
   .editorial-visual img {
-    max-width: 82% !important;
-    max-height: 185px !important;
-    border-radius: 16px !important;
-    clip-path: inset(0 round 16px) !important;
+    width: clamp(180px, 58vw, 220px) !important;
+    height: clamp(180px, 58vw, 220px) !important;
+    max-width: 80% !important;
+    max-height: 80% !important;
+    object-fit: contain !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    margin: auto !important;
+    display: block !important;
+    mix-blend-mode: normal !important;
   }
 
   /* Fix text links & routine in mobile layout */
@@ -814,13 +892,18 @@ dialog::backdrop{background:rgba(0,0,0,0.9);backdrop-filter:blur(12px)}
 
 @media(max-width:480px){
   .editorial-visual {
-    max-height: 210px !important;
-    padding: 10px !important;
+    max-height: 280px !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
   }
   .editorial-visual img {
-    max-height: 160px !important;
-    border-radius: 14px !important;
-    clip-path: inset(0 round 14px) !important;
+    width: clamp(160px, 56vw, 200px) !important;
+    height: clamp(160px, 56vw, 200px) !important;
+    max-width: 78% !important;
+    max-height: 78% !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    mix-blend-mode: normal !important;
   }
   .footer-showcase{
     height:140px !important;
