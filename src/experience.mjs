@@ -55,7 +55,7 @@ if (carouselHost) {
           items: productItems,
           preset: 'liquid',
           intro: 'rise',
-          cardHeight: 0.58,
+          cardHeight: 0.44,
           gap: 16,
           radius: 8,
           fit: 'square',
