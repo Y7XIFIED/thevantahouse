@@ -4,7 +4,7 @@ Use `presentation.html` for the 10-slide section. Arrow keys move between slides
 
 1. **A digital showroom for intelligent living.** Introduce the fictional Indian premium smart-home brand and your role: website development, SEO, enquiry generation. Explain that this is a functional academic concept.
 2. **One clear journey: discover → explore → enquire.** Show the five main destinations and the four product detail pages. Explain product-specific enquiry links and the central campaign destination.
-3. **A considered first impression.** Use the desktop screenshot. Discuss titanium colours, architectural artwork, Manrope/Inter, whitespace and two clear CTAs. Credit the generated concept artwork honestly.
+3. **A considered first impression.** Use the desktop screenshot. Discuss titanium colours, architectural artwork, Bodoni Moda / Google Sans Flex, whitespace and two clear CTAs. Credit the generated concept artwork honestly.
 4. **Four products, one design language.** Show the collection and product detail. Explain prices, features, filtering and why enquiry links retain product interest.
 5. **HTML and CSS, made visible.** Show semantic HTML, shared source templates, CSS Grid and custom properties. The pages are rendered to real HTML at build time; JavaScript enhances interactions.
 6. **The same experience at every size.** Show mobile beside desktop. State that ten routes were checked at 375, 768 and 1440 pixels without horizontal overflow. Explain mobile menu, fluid type and reduced-motion treatment.

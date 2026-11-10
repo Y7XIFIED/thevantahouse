@@ -29,3 +29,6 @@
 ## Limits
 
 These checks are focused functional and responsive checks, not a full accessibility certification or penetration test. Keyboard interactions use native links/buttons, a native dialog, visible focus styles, a skip link and labelled inputs. Reduced-motion behavior is implemented in CSS; a full assistive-technology audit was not performed. Lighthouse was not run, so no Lighthouse scores are reported. Search visibility is intentionally disabled for this private academic preview. No actual traffic, conversion rates, Google Ads results or commercial product performance are claimed.
+
+## Final dark edition checks
+30 route/width checks passed again. Atmosphere Studio Unwind returned 32% brightness, Focus returned 95%, and Arrive restored 68%. Mobile navigation worked. Five backend tests passed, and 270 internal links/assets resolved. Google Sans Flex and dark product assets are locally hosted.

@@ -12,3 +12,6 @@ Use case: product-mockup. A high end industrial design product photography conta
 
 The product sheet was separated into four catalogue assets and exported as WebP. All images are fictional concept visuals.
 
+
+## Dark product edition
+Built-in ImageGen edit: preserve all four product identities, positions and quadrants; change every background to graphite #272d32, add restrained silver edge lighting and dark realistic shadows. Final assets: public/assets/core-dark.webp, secure-dark.webp, glow-dark.webp, vision-dark.webp.
