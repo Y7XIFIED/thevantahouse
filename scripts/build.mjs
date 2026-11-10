@@ -3,7 +3,7 @@ import path from 'node:path';
 import {routes,render} from '../src/render.mjs';
 import {build} from 'esbuild';
 const root=process.cwd(),out=path.join(root,'dist'),client=path.join(out,'client');
-const origin=process.env.SITE_ORIGIN||'https://the-vanta-house-y7xified.futuresquid4.chatgpt.site';
+const origin=process.env.SITE_ORIGIN||'https://thevantahouse.vercel.app';
 if(path.relative(root,client)!==path.join('dist','client'))throw new Error('Unexpected build directory');
 await rm(client,{recursive:true,force:true});await mkdir(client,{recursive:true});await cp('public',client,{recursive:true});
 await build({entryPoints:['src/experience.mjs'],outdir:client,bundle:true,minify:true,format:'esm',splitting:true,chunkNames:'assets/[name]-[hash]',target:['es2022'],logLevel:'warning'});

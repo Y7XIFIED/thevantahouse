@@ -18,4 +18,41 @@ document.querySelector('.dialog-close')?.addEventListener('click',()=>dialog.clo
 const form=document.querySelector('#enquiry-form');
 if(form){event('contact_page_visit');const started=Date.now();let submissionId=crypto.randomUUID();let busy=false;let lastPayload='';const date=form.elements.date;const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());date.min=today();if(['core','secure','glow','vision','all'].includes(query.get('product')))form.elements.product.value=query.get('product');
 const showErrors=errors=>{form.querySelectorAll('.field-error').forEach(e=>e.textContent='');form.querySelectorAll('[aria-invalid]').forEach(e=>e.removeAttribute('aria-invalid'));for(const [k,v] of Object.entries(errors)){const input=form.elements[k],error=document.getElementById(k+'-error');if(input&&error){input.setAttribute('aria-invalid','true');error.textContent=v}}};
-form.addEventListener('submit',async e=>{e.preventDefault();if(busy)return;const data=Object.fromEntries(new FormData(form));data.consent=form.elements.consent.checked;const errors={};if(!data.name.trim())errors.name='Please enter your full name.';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))errors.email='Enter a valid email address.';if(!/^(?:\+91|91|0)?[6-9]\d{9}$/.test(data.phone.replace(/[\s()-]/g,'')))errors.phone='Enter a valid 10-digit Indian mobile number.';if(!data.city.trim())errors.city='Please enter your city.';if(!data.product)errors.product='Choose a product or the complete ecosystem.';if(!data.type)errors.type='Choose your enquiry type.';if(data.date&&data.date<today())errors.date='Choose today or a future date.';if(!data.message.trim())errors.message='Please add a short message.';if(!data.consent)errors.consent='Please read and accept the project privacy notes.';showErrors(errors);const status=document.querySelector('#form-status');status.className='';status.textContent='';if(Object.keys(errors).length){form.elements[Object.keys(errors)[0]].focus();return}const signature=JSON.stringify(data);if(lastPayload&&signature!==lastPayload)submissionId=crypto.randomUUID();lastPayload=signature;busy=true;const button=form.querySelector('[type=submit]');button.disabled=true;button.textContent='Sending your enquiry…';try{const response=await fetch('/api/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,submissionId,started,attribution}),signal:AbortSignal.timeout(15000)});const result=await response.json();if(!response.ok){if(result.errors)showErrors(result.errors);throw new Error(result.message||'We could not store your enquiry. Please try again.')}status.className='success';status.textContent=`Enquiry stored successfully. Reference: ${result.reference}. This academic demonstration does not confirm an appointment or send an email.`;event('form_submission_success',{product:data.product});form.reset();submissionId=crypto.randomUUID();lastPayload='';status.focus()}catch(err){status.className='error';status.textContent=err.name==='TimeoutError'?'The request timed out. Retry safely; your submission reference prevents duplicates.':err.message||'Connection unavailable. Please try again.';status.focus()}finally{busy=false;button.disabled=false;button.innerHTML='Send enquiry <span aria-hidden="true">↗</span>'}});}
+let loaderControl = null;
+form.addEventListener('submit',async e=>{e.preventDefault();if(busy)return;const data=Object.fromEntries(new FormData(form));data.consent=form.elements.consent.checked;const errors={};if(!data.name.trim())errors.name='Please enter your full name.';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))errors.email='Enter a valid email address.';if(!/^(?:\+91|91|0)?[6-9]\d{9}$/.test(data.phone.replace(/[\s()-]/g,'')))errors.phone='Enter a valid 10-digit Indian mobile number.';if(!data.city.trim())errors.city='Please enter your city.';if(!data.product)errors.product='Choose a product or the complete ecosystem.';if(!data.type)errors.type='Choose your enquiry type.';if(data.date&&data.date<today())errors.date='Choose today or a future date.';if(!data.message.trim())errors.message='Please add a short message.';if(!data.consent)errors.consent='Please read and accept the project privacy notes.';showErrors(errors);const status=document.querySelector('#form-status');status.className='';status.textContent='';if(Object.keys(errors).length){form.elements[Object.keys(errors)[0]].focus();return}const signature=JSON.stringify(data);if(lastPayload&&signature!==lastPayload)submissionId=crypto.randomUUID();lastPayload=signature;busy=true;const button=form.querySelector('[type=submit]');button.disabled=true;
+const loaderSlot = document.createElement('div');
+loaderSlot.className = 'form-loader-wrapper';
+status.innerHTML = '';
+status.className = 'submitting';
+status.appendChild(loaderSlot);
+try {
+  const { mountLatticeLoader } = await import('/LatticeLoader.js');
+  loaderControl = mountLatticeLoader(loaderSlot, {
+    label: 'Validating & Storing',
+    doneLabel: 'Confirmed in',
+    errorLabel: 'Failed after',
+    pattern: 'orbit',
+    grid: 3,
+    shape: 'round',
+    color: '#edf0f2',
+    doneColor: '#22c55e',
+    errorColor: '#ef4444',
+    cellSize: 7,
+    gap: 3,
+    fontSize: 14,
+    showTimer: true
+  });
+} catch {}
+try{const response=await fetch('/api/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,submissionId,started,attribution}),signal:AbortSignal.timeout(15000)});const result=await response.json();if(!response.ok){if(result.errors)showErrors(result.errors);throw new Error(result.message||'We could not store your enquiry. Please try again.')}
+if (loaderControl) loaderControl.setStatus('done');
+status.className='success';
+const msg=document.createElement('p');
+msg.textContent=`Enquiry stored successfully. Reference: ${result.reference}. This academic demonstration does not confirm an appointment or send an email.`;
+status.appendChild(msg);
+event('form_submission_success',{product:data.product});form.reset();submissionId=crypto.randomUUID();lastPayload='';status.focus()}catch(err){
+if (loaderControl) loaderControl.setStatus('error');
+status.className='error';
+const errP=document.createElement('p');
+errP.textContent=err.name==='TimeoutError'?'The request timed out. Retry safely; your submission reference prevents duplicates.':err.message||'Connection unavailable. Please try again.';
+status.appendChild(errP);
+status.focus()}finally{busy=false;button.disabled=false;button.innerHTML='Send enquiry <span aria-hidden="true">↗</span>'}});}

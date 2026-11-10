@@ -1,1 +1,26 @@
-{"name":"the-vanta-house","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","dev":"node scripts/dev.mjs","test":"node --test tests/*.test.mjs"},"dependencies":{"gsap":"^3.15.1","three":"^0.187.0"},"devDependencies":{"esbuild":"^0.28.2"}}
+{
+  "name": "the-vanta-house",
+  "version": "1.0.0",
+  "description": "A luxury smart home architectural showcase featuring custom interactive 3D spaces, ambient lighting systems, and modern hardware aesthetics.",
+  "author": "Y7XIFIED",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "^4.4.0",
+    "@hugeicons/react": "^1.1.10",
+    "gsap": "^3.15.1",
+    "motion": "^14.11.1",
+    "ogl": "^1.0.11",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

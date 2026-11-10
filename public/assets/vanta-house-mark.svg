@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Pure geometric icon mark -->
+  <rect width="100%" height="100%" fill="#000000"/>
+  <g transform="translate(100, 100)">
+    <path d="M20 20 L150 280 L280 20 M85 20 L150 150 L215 20" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="20" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+</svg>
