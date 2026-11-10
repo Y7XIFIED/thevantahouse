@@ -19,7 +19,7 @@ Open http://127.0.0.1:4173. The development server uses the built Worker, so reb
 - Ten semantic HTML pages: homepage, collection, four product detail pages, philosophy, Smart Living, contact and privacy.
 - Original architectural concept artwork and four consistent product concepts; locally hosted, compressed WebP assets and fonts.
 - Graphite grain, fluted-glass detail, monochromatic landscape, blueprint grid and contour treatments.
-- Bodoni Moda editorial display type paired with Manrope and Inter; Atmosphere Studio with three scenes and brightness control, asymmetric product studies, GSAP entrances and scroll choreography, a Three.js architectural model with drag/keyboard rotation and four product selectors, room scenes, dialogs and reduced-motion support.
+- Bodoni Moda editorial display type paired with Manrope and Inter; a clean cinematic hero, asymmetric product studies, GSAP entrances and scroll choreography, a Three.js architectural model with drag/keyboard rotation and four product selectors, room scenes, dialogs and reduced-motion support.
 - Responsive navigation and catalogue filtering, product-specific enquiry links, unique metadata, canonicals, social metadata, sitemap, robots and truthful WebSite structured data.
 - Real server-confirmed enquiry storage, client/server validation, retry deduplication, honeypot, minimum fill-time check, payload limits and same-origin checks.
 - Y7XIFIED developer credit and GitHub link on every page.
@@ -77,4 +77,4 @@ To integrate GA4: create a web data stream for the final domain; configure the G
 See `docs/TEST-REPORT.md`. Browser checks and API tests are recorded. Lighthouse scores and full WCAG conformance are not claimed; the 90+ values in the original brief remain targets until measured. Generated product imagery and all product features are academic concepts, not certified specifications.
 
 ## Final dark edition
-All pages use continuous charcoal and graphite surfaces, Google Sans Flex controls and body text, larger touch targets, and dark studio product artwork. Atmosphere Studio offers Arrive, Focus and Unwind scenes with manual brightness. Dark product assets use versioned filenames to avoid stale browser cache.
+All pages use continuous charcoal and graphite surfaces, Google Sans Flex controls and body text, larger touch targets, and dark studio product artwork. The hero intentionally has no control panel. Dark product assets use versioned filenames to avoid stale browser cache.
