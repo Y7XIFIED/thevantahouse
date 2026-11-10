@@ -10,7 +10,6 @@ mm.add('(prefers-reduced-motion: no-preference)',()=>{
   gsap.fromTo('.signature-hero .hero-image',{scale:1.07},{scale:1,duration:2.5,ease:'power2.out'});
   gsap.to('.signature-hero .hero-image',{yPercent:13,ease:'none',scrollTrigger:{trigger:'.signature-hero',start:'top top',end:'bottom top',scrub:1}});
   gsap.from('.manifesto-text',{color:'#a9aeb2',y:25,ease:'none',scrollTrigger:{trigger:'.manifesto',start:'top 75%',end:'center 45%',scrub:1}});
-  gsap.to('.brand-marquee>div',{xPercent:-20,ease:'none',scrollTrigger:{trigger:'.brand-marquee',start:'top bottom',end:'bottom top',scrub:1}});
   gsap.to('.quiet-image img',{yPercent:-14,ease:'none',scrollTrigger:{trigger:'.quiet-section',start:'top bottom',end:'bottom top',scrub:1}});
  }
  const progress=document.createElement('div');progress.className='scroll-progress';document.body.append(progress);gsap.to(progress,{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.2}});
